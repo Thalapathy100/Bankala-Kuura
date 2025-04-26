@@ -7,9 +7,10 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            margin: 20px;
+            margin: 0;
             padding: 0;
-            background-color: #f4f4f9;
+            background: linear-gradient(135deg, #ff7e5f, #feb47b);
+            scroll-behavior: smooth;
         }
         .recipe-container {
             max-width: 800px;
@@ -18,16 +19,51 @@
             background-color: white;
             border-radius: 8px;
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            animation: fadeIn 1.5s ease-out;
+        }
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
         }
         h1 {
             text-align: center;
             color: #333;
+            transition: transform 0.3s ease-in-out;
+        }
+        h1:hover {
+            transform: scale(1.1);
+            color: #FF5722;
         }
         .ingredients, .instructions {
             margin-top: 20px;
         }
         .ingredients ul, .instructions ol {
             margin-left: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #ff5722;
+            border: none;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: transform 0.3s ease-in-out;
+        }
+        button:hover {
+            transform: scale(1.1);
+            background-color: #ff8a65;
+        }
+        @media (max-width: 768px) {
+            .recipe-container {
+                padding: 15px;
+            }
+            h1 {
+                font-size: 28px;
+            }
+            .ingredients ul, .instructions ol {
+                margin-left: 10px;
+            }
         }
     </style>
 </head>
@@ -68,6 +104,8 @@
                 <li>Serve hot with rice or roti.</li>
             </ol>
         </div>
+
+        <button>Try this recipe!</button>
     </div>
 
 </body>
